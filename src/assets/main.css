@@ -1,0 +1,62 @@
+@import './base.css';
+
+h1 {
+	color: #a6a6a6 !important;
+	font-size: 22px !important;
+}
+
+.btn-new-role {
+	text-transform: uppercase;
+	background-color: #5fb6ca !important;
+	border-color: #539eaf !important;
+	font-size: 12px;
+}
+.btn-inactive {
+	text-transform: uppercase;
+	font-size: 10px !important;
+	padding: 2px !important;
+}
+
+.inactive-box {
+	height: 30px;
+}
+
+.search-box label {
+	font-size: 12px;
+	margin: 0;
+}
+
+.date-box {
+	font-size: 10px;
+}
+.lock-box {
+	font-size: 12px;
+}
+.user-image {
+	height: 25px;
+}
+
+.search-box .box {
+	/* align content */
+}
+
+.card-text {
+	font-size: 11px;
+}
+.card-title {
+	font-size: 14px;
+}
+
+.plus-images-box {
+	background-color: #9b9b9b;
+	color: white;
+	padding: 5px;
+	border-radius: 22px;
+	cursor: pointer;
+	height: 28px;
+	line-height: 16px;
+}
+
+.float-right {
+	float: right;
+}
