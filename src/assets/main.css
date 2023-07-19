@@ -60,3 +60,26 @@ h1 {
 .float-right {
 	float: right;
 }
+
+.buttons-box {
+	display: flex;
+	justify-content: end;
+}
+.buttons-box button {
+	margin-left: 5px;
+	background-color: white;
+	border-color: white;
+	font-size: 12px !important;
+	font-weight: bold;
+}
+.buttons-box button.delete {
+	color: rgb(160, 36, 36);
+}
+.buttons-box button.edit {
+	color: #3d3b3b;
+}
+.buttons-box button:hover {
+	background-color: white;
+	border-color: white;
+	color: blue;
+}

@@ -43,9 +43,9 @@
 					<div class="col-md-6 lock-box" v-if="!role.editable">
 						<span style="float: right"> 🔒 </span>
 					</div>
-					<div class="col-md-6 date-box" v-else>
-						<button class="btn btn-danger btn-inactive">Edit</button>
-						<button class="btn btn-danger btn-inactive">Delete</button>
+					<div class="col-md-6 buttons-box" v-else style="">
+						<button class="btn btn-danger btn-inactive edit">Edit</button>
+						<button class="btn btn-danger btn-inactive delete">Delete</button>
 					</div>
 				</div>
 
