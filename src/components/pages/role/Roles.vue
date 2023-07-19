@@ -27,7 +27,6 @@
 					<select
 						class="form-select"
 						id="filter-dropdown"
-						@change="updateStatus"
 						v-model="selectedStatus"
 					>
 						<option value="all">Active and Inactive</option>
@@ -42,6 +41,7 @@
 					class="btn btn-success mb-4 btn-new-role float-right"
 					data-bs-toggle="modal"
 					data-bs-target="#addRoleModal"
+					@click="createRole()"
 				>
 					Add New Role
 				</button>
@@ -50,7 +50,13 @@
 
 		<!-- Role Cards -->
 		<div class="row">
-			<role-card v-for="role in filteredRoles" :role="role" :key="role.id">
+			<role-card
+				v-for="role in filteredRoles"
+				:role="role"
+				:key="role.id"
+				@deleteRole="deleteRole"
+				@loadDetails="loadDetails"
+			>
 			</role-card>
 		</div>
 	</div>
@@ -61,8 +67,8 @@ import { computed, onMounted, ref } from 'vue'
 import type { Role } from '@/types'
 import { useRoleStore } from '@/stores/RoleStore'
 import RoleCard from '@/components/role/RoleCard.vue'
+import router from '@/router'
 
-const newRole = ref('')
 const roleStore = useRoleStore()
 const search = ref('')
 const selectedStatus = ref('all')
@@ -72,10 +78,23 @@ onMounted((): void => {
 })
 
 function loadDetails(id: number) {
-	console.log('...loading ' + id.toString())
+	router.push({
+		name: 'roleReveal',
+		params: { id: id },
+	})
 }
 
-function updateStatus() {}
+function createRole() {
+	router.push({
+		name: 'roleCreate',
+	})
+}
+
+function deleteRole(id: number) {
+	const index = roleStore.roles.findIndex((role) => role.id === id)
+
+	roleStore.removeRole(index)
+}
 
 const filteredRoles = computed(() => {
 	roleStore.roles

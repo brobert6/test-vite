@@ -44,8 +44,18 @@
 						<span style="float: right"> 🔒 </span>
 					</div>
 					<div class="col-md-6 buttons-box" v-else style="">
-						<button class="btn btn-danger btn-inactive edit">Edit</button>
-						<button class="btn btn-danger btn-inactive delete">Delete</button>
+						<button
+							class="btn btn-danger btn-inactive edit"
+							@click="loadDetails()"
+						>
+							Edit
+						</button>
+						<button
+							class="btn btn-danger btn-inactive delete"
+							@click="removeRole()"
+						>
+							Delete
+						</button>
 					</div>
 				</div>
 
@@ -83,7 +93,20 @@ function formatDate(createdOn: string) {
 	return `${day}/${month}/${year}`
 }
 
+function removeRole() {
+	emit('deleteRole', props.role.id)
+}
+
+function loadDetails() {
+	emit('loadDetails', props.role.id)
+}
+
 const usersWithImages = computed(() => {
 	return props.role.users.filter((user) => user.photo_url.length > 0)
 })
+
+const emit = defineEmits<{
+	(e: 'deleteRole', id: number): void
+	(e: 'loadDetails', id: number): void
+}>()
 </script>

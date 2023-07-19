@@ -16,3 +16,9 @@ export type Role = {
 	created_on: string
 	modified_on: string
 }
+
+export enum PageType {
+	EDIT = 'edit',
+	CREATE = 'create',
+	REVEAL = 'reveal',
+}

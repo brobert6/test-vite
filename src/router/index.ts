@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Roles from '../components/pages/role/Roles.vue'
 import RoleDetails from '../components/pages/role/RoleDetails.vue'
+import { PageType } from '@/types'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -19,12 +20,18 @@ const router = createRouter({
 			name: 'roleReveal',
 			path: '/role/:id',
 			component: RoleDetails,
+			props: {
+				pageType: PageType.EDIT,
+			},
 		},
 		,
 		{
-			name: 'roleReveal',
+			name: 'roleCreate',
 			path: '/role/create',
 			component: RoleDetails,
+			props: {
+				pageType: PageType.CREATE,
+			},
 		},
 	],
 })
